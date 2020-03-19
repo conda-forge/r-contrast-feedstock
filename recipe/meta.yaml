@@ -1,5 +1,4 @@
-{% set version = "0.22" %}
-
+{% set version = '0.22' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,55 +7,67 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: contrast_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/contrast_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/contrast/contrast_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/contrast_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/contrast/contrast_{{ version }}.tar.gz
   sha256: 9c0b70f007d6f2c06b6ed438ea3d18918ad17365e0fa5c0ab1f70d635b2aff87
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
-
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-    - r-hmisc
-    - r-mass
-    - r-geepack
     - r-nlme
     - r-rms
     - r-sandwich
-
   run:
     - r-base
-    - r-hmisc
-    - r-mass
-    - r-geepack
     - r-nlme
     - r-rms
     - r-sandwich
 
 test:
   commands:
-    - $R -e "library('contrast')"  # [not win]
+    - $R -e "library('contrast')"           # [not win]
     - "\"%R%\" -e \"library('contrast')\""  # [win]
 
 about:
-  home: https://CRAN.R-project.org/package=contrast
+  home: https://github.com/topepo/contrast
   license: GPL-2
-  summary: One degree of freedom contrasts for lm, glm, gls, and geese objects.
+  summary: One degree of freedom contrasts for 'lm', 'glm', 'gls', and 'geese' objects.
   license_family: GPL2
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
+
+# Package: contrast
+# Title: A Collection of Contrast Methods
+# Version: 0.22
+# Authors@R: c( person(given = "Alan",  family = "O'Callaghan", email = "alan.ocallaghan@outlook.com", role = c("aut", "cre")), person(given = "Max",   family = "Kuhn", role = "aut"), person(given = "Steve", family = "Weston", role = "aut"), person(given = "Jed",   family = "Wing", role = "aut"), person(given = "James", family = "Forester", role = "aut"), person(given = "Thorn", family = "Thaler", role = "aut"))
+# Description: One degree of freedom contrasts for 'lm', 'glm', 'gls', and 'geese' objects.
+# License: GPL-2
+# URL: https://github.com/topepo/contrast
+# Encoding: UTF-8
+# LazyData: true
+# Depends: R (>= 2.10)
+# Imports: nlme, sandwich, rms
+# Suggests: knitr, kableExtra, dplyr, ggplot2, tidyr, rmarkdown, testthat, covr, geepack
+# RoxygenNote: 7.0.2.9000
+# VignetteBuilder: knitr
+# NeedsCompilation: no
+# Packaged: 2020-03-18 23:47:59 UTC; alan
+# Author: Alan O'Callaghan [aut, cre], Max Kuhn [aut], Steve Weston [aut], Jed Wing [aut], James Forester [aut], Thorn Thaler [aut]
+# Maintainer: Alan O'Callaghan <alan.ocallaghan@outlook.com>
+# Repository: CRAN
+# Date/Publication: 2020-03-19 14:10:02 UTC
