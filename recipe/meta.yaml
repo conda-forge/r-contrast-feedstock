@@ -1,4 +1,4 @@
-{% set version = '0.21' %}
+{% set version = "0.22" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,11 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/contrast_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/contrast/contrast_{{ version }}.tar.gz
-  sha256: dc22784fca911b2ef78f83be13e744d10e677e82a14d817d460f6f3d2a36f5b9
+  sha256: 9c0b70f007d6f2c06b6ed438ea3d18918ad17365e0fa5c0ab1f70d635b2aff87
 
 build:
   noarch: generic
-  number: 1001
+  number: 0
 
   rpaths:
     - lib/R/lib/
@@ -51,7 +51,7 @@ about:
   license: GPL-2
   summary: One degree of freedom contrasts for lm, glm, gls, and geese objects.
   license_family: GPL2
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
