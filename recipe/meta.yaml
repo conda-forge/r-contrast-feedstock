@@ -41,7 +41,7 @@ test:
 
 about:
   home: https://github.com/topepo/contrast
-  license: GPL-2
+  license: GPL-2.0-only
   summary: One degree of freedom contrasts for 'lm', 'glm', 'gls', and 'geese' objects.
   license_family: GPL2
   license_file:
