@@ -1,4 +1,4 @@
-{% set version = '0.22' %}
+{% set version = "0.24.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/contrast_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/contrast/contrast_{{ version }}.tar.gz
-  sha256: 9c0b70f007d6f2c06b6ed438ea3d18918ad17365e0fa5c0ab1f70d635b2aff87
+  sha256: 589103633eb9d5958152189f52ba04bbe055376e31bfdf6f597f788aee612984
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -45,7 +45,7 @@ about:
   summary: One degree of freedom contrasts for 'lm', 'glm', 'gls', and 'geese' objects.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
