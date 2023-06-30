@@ -1,11 +1,11 @@
-About r-contrast
-================
+About r-contrast-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-contrast-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/topepo/contrast
 
 Package license: GPL-2.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-contrast-feedstock/blob/main/LICENSE.txt)
 
 Summary: One degree of freedom contrasts for 'lm', 'glm', 'gls', and 'geese' objects.
 
